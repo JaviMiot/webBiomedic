@@ -7,6 +7,8 @@
 :root {
   --white: #f2f2f2;
   --blue_background: #03597a;
+  --blue2: #05c7f2;
+  --Blue_sky-1: #05dbf2;
 }
 
 html {
@@ -15,7 +17,7 @@ html {
 }
 
 body {
-  background: var(--blue_background);
+  background: var(--blue_background) !important;
 }
 
 header {
@@ -182,4 +184,113 @@ main {
     rgba(5, 219, 242, 0.57) 0%,
     rgba(5, 175, 242, 0) 100%
   );
+}
+
+.projects_containers {
+  margin: 0 15px;
+}
+
+.project-section {
+  margin: 0 15px;
+}
+
+.title-container {
+  width: 100%;
+}
+
+.title-container-header {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  color: var(--white);
+}
+
+.title-container-header .title-imagen {
+  height: 35px;
+  width: 35px;
+  background-image: url("./assets/icons/img_project.svg");
+  margin-right: 17px;
+}
+
+.title-container-header h3 {
+  font-style: normal;
+  font-weight: bold;
+  font-size: 29px;
+  line-height: 120%;
+}
+
+.line {
+  margin-top: 7px;
+  width: 100%;
+  height: 2px;
+  background: var(--blue2);
+  box-shadow: 0px 4px 4px 3px rgba(0, 0, 0, 0.15);
+  border-radius: 50px;
+}
+
+.project_container {
+  margin-top: 23px;
+  width: 100%;
+  color: var(--white);
+}
+
+.project_container .project-title {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 15px;
+  line-height: 120%;
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.project_info {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.project_info--imagen {
+  width: 100%;
+  max-width: 345px;
+  background: url(diabetes-528678_1920.jpg);
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.2));
+  border-radius: 15px;
+  margin: 0 auto;
+}
+
+.project_info--descrition {
+  width: 100%;
+}
+
+.tags {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 48px;
+  margin-top: 13px;
+}
+
+.tags .tags-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 48px;
+  height: auto;
+  margin-right: 7px;
+}
+
+.tags-item .tags-item--imagen {
+  width: 33px;
+  height: 33px;
+}
+
+.tags-item p {
+  margin-top: 3px;
+  color: var(--Blue_sky-1);
+  font-family: Karla;
+  font-style: normal;
+  font-weight: 1;
+  font-size: 8px;
+  line-height: 120%;
 }
