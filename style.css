@@ -96,7 +96,7 @@ main {
   width: 100%;
   height: calc(100vh - 48px);
   padding: 0 15px;
-  overflow: hidden;
+  z-index: 1;
 }
 
 .main-imagen {
@@ -138,6 +138,7 @@ main {
   animation-duration: 1.5s;
   animation-timing-function: ease-in-out;
   animation-iteration-count: infinite;
+  z-index: 4;
 }
 
 .arrow {
@@ -163,16 +164,17 @@ main {
   position: absolute;
   width: 228px;
   height: 228px;
+  z-index: 2;
 }
 
 .circle-up {
-  right: -78px;
+  position: absolute;
+  width: calc(228px - 78px);
+  height: 228px;
+  right: 0px;
   top: 165px;
-  background: radial-gradient(
-    43.75% 43.75% at 50% 50%,
-    rgba(4, 131, 181, 0.52) 0%,
-    rgba(5, 175, 242, 0) 100%
-  );
+  background-image: url("./assets/image/circle.svg");
+  background-repeat: no-repeat;
 }
 
 .circle-down {
@@ -190,8 +192,24 @@ main {
   margin: 0 15px;
 }
 
-.project-section {
+.section-width {
+  display: flex;
+  position: relative;
+  flex-direction: column;
   margin: 0 15px;
+}
+
+.model1 {
+  position: absolute;
+  display: inline-block;
+  height: 145px;
+  width: calc(145px - 63px);
+  right: -15px;
+  top: -30px;
+  background-image: url("./assets/image/model1.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  z-index: 1;
 }
 
 .title-container {
@@ -208,8 +226,11 @@ main {
 .title-container-header .title-imagen {
   height: 35px;
   width: 35px;
-  background-image: url("./assets/icons/img_project.svg");
   margin-right: 17px;
+}
+
+.img-project {
+  background-image: url("./assets/icons/img_project.svg");
 }
 
 .title-container-header h3 {
@@ -253,7 +274,7 @@ main {
 .project_info--imagen {
   width: 100%;
   max-width: 345px;
-  background: url(diabetes-528678_1920.jpg);
+  background: url("./assets/image/project.jpg");
   filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.2));
   border-radius: 15px;
   margin: 0 auto;
@@ -293,4 +314,114 @@ main {
   font-weight: 1;
   font-size: 8px;
   line-height: 120%;
+}
+
+.heart_logo {
+  margin: 19px auto 37px;
+}
+
+.img-video {
+  background-image: url("./assets//icons/video_logo.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.videos-containers {
+  width: 100%;
+}
+
+.video-section {
+  width: 100%;
+  margin: 23px auto;
+  color: var(--white);
+}
+
+.video-section .video-section--title {
+  font-family: Rubik;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 15px;
+  line-height: 120%;
+  text-align: center;
+  margin-bottom: 16px;
+}
+
+.video-section--item {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.video-section--item iframe {
+  width: 100%;
+  min-height: 200px;
+  height: 80%;
+  margin-bottom: 27px;
+}
+
+.title-imagen-big {
+  height: 45px;
+  width: 55px;
+  margin-right: 17px;
+}
+
+.img-team {
+  background-image: url("./assets/icons/team_logo.svg");
+  background-repeat: no-repeat;
+}
+
+.biography-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  margin-top: 23px;
+}
+
+.biography-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 239px;
+  color: var(--white);
+  margin-bottom: 27px;
+}
+
+.biography-item--img img {
+  width: 170px;
+  height: 170px;
+  border-radius: 50%;
+  border: 5px solid var(--blue2);
+  margin-bottom: 14px;
+}
+
+.biography-item h4 {
+  font-family: Rubik;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 15px;
+  line-height: 120%;
+  margin-bottom: 17px;
+}
+
+.biography-item p {
+  font-family: Karla;
+  font-style: normal;
+  font-weight: 1;
+  font-size: 15px;
+  line-height: 120%;
+  text-align: center;
+}
+
+
+footer{
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 47px;
+  color: var(--white);
+  background-color: #00374D;
+}
+footer nav ul{
+  list-style: none;
 }
