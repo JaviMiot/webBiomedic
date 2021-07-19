@@ -15,6 +15,8 @@
 html {
   font-size: 62.5%;
   font-family: "Rubik", sans-serif;
+  scroll-behavior: smooth;
+  scroll-snap-type: y mandatory;
 }
 
 body {
@@ -102,21 +104,12 @@ main {
 
 .main-imagen {
   width: 100%;
-  max-width: 630px;
+  max-width: 430px;
   margin: 25px auto 0px;
 }
 
-.main-section {
-  position: relative;
-  width: 100%;
-  height: 55vh;
-  margin-top: 25px;
-}
-
 .main-section h3 {
-  position: absolute;
-  left: 0;
-  width: 60%;
+  grid-area: text-main;
   font-weight: bold;
   font-size: 2.53rem;
   line-height: 120%;
@@ -124,22 +117,37 @@ main {
 }
 
 .main-section img {
-  position: absolute;
+  grid-area: imagen-main;
   bottom: 25px;
-  right: 0;
-  width: 151px;
+  width: 100%;
+  height: 100%;
+  max-width: 260px;
 }
 
 .arrows-container {
-  position: absolute;
-  bottom: 40px;
-  left: 35px;
-  height: auto;
+  grid-area: row-main;
+  height: 50px;
+  width: 60px;
   animation: arrow;
   animation-duration: 1.5s;
   animation-timing-function: ease-in-out;
   animation-iteration-count: infinite;
   z-index: 4;
+}
+
+.main-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  justify-items: stretch;
+  justify-content: center;
+  grid-template-areas:
+    "text-main empty1"
+    "empty2 imagen-main"
+    "row-main imagen-main";
+  width: 100%;
+  height: Auto;
+  margin-top: 25px;
 }
 
 .arrow {
@@ -275,7 +283,7 @@ main {
 
 .project_info--imagen {
   width: 100%;
-  max-width: 345px;
+  max-width: 600px;
   background: url("./assets/image/project.jpg");
   filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.2));
   border-radius: 15px;
@@ -290,7 +298,7 @@ main {
   display: flex;
   align-items: center;
   width: 100%;
-  height: 48px;
+  height: auto;
   margin-top: 13px;
 }
 
@@ -298,14 +306,14 @@ main {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 48px;
+  width: 70px;
   height: auto;
   margin-right: 7px;
 }
 
 .tags-item .tags-item--imagen {
-  width: 33px;
-  height: 33px;
+  width: 45px;
+  height: 45px;
 }
 
 .tags-item p {
@@ -314,7 +322,7 @@ main {
   font-family: Karla;
   font-style: normal;
   font-weight: 1;
-  font-size: 8px;
+  font-size: 1.2rem;
   line-height: 120%;
 }
 
@@ -358,6 +366,7 @@ main {
 
 .video-section--item iframe {
   width: 100%;
+  min-width: 320px;
   max-width: 450px;
   margin-bottom: 27px;
 }
@@ -436,4 +445,127 @@ footer {
 }
 footer nav ul {
   list-style: none;
+}
+
+@media (min-width: 390px) {
+  .main-section {
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 35px 1fr 100px;
+    justify-items: stretch;
+    justify-content: center;
+    grid-template-areas:
+      "empty0 empty0 imagen-main"
+      "empty1 text-main imagen-main"
+      "empty2 row-main imagen-main";
+    justify-items: center;
+    margin-top: 0;
+  }
+
+  .main-section h3 {
+    text-align: center;
+    font-size: calc(3.7rem - 0.1vh);
+  }
+
+  .main-section img {
+    opacity: 0;
+  }
+
+  .arrows-container {
+    align-self: end;
+  }
+
+  .title-container-header h3 {
+    font-size: 3.7rem;
+  }
+
+  .project_container .project-title,
+  .video-section .video-section--title {
+    font-size: 2.3rem;
+  }
+  .project_info--descrition > p,
+  .video-section--item .video--info {
+    font-size: 1.8rem;
+  }
+}
+
+@media (min-width: 800px) {
+  header{
+    position: sticky;
+    position: -webkit-sticky;
+    top: 0px;
+    z-index: 10;
+  }
+  .main-section img {
+    opacity: 1;
+  }
+
+  .navbar .navbar-items {
+    display: inline;
+    color: var(--white);
+  }
+
+  .navbar-items {
+    list-style: none;
+  }
+
+  .navbar-items a {
+    font-family: Rubik;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 23px;
+    line-height: 120%;
+    color: var(--white);
+    outline: none;
+    text-decoration: none;
+    margin-left: 13px;
+  }
+
+  .navbar-items a:hover{
+    color: var(--Blue_sky-1);
+  }
+
+  .hamburger-container {
+    display: none;
+  }
+}
+
+@media (min-width: 1000px) {
+  .project_info {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .project_container .project-title {
+    text-align: center;
+  }
+  .project_info--descrition,
+  .project_info .carousel {
+    width: 50%;
+  }
+
+  .project_info--descrition{
+    margin-left: 13px;
+  }
+
+  .videos-containers {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+
+
+  .video-section{
+    width: 50%;
+  }
+
+  .biography-container{
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+
+  .biography-item{
+    width: 25%;
+    margin: 15px 13px;
+  }
 }
