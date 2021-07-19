@@ -32,10 +32,12 @@ header {
   padding: 0 var(--margin_15px) 0 var(--margin_15px);
   background: linear-gradient(180deg, #05aff2 0%, rgba(1, 31, 43, 0.82) 100%);
   box-shadow: 0px 4px 2px rgba(3, 112, 156, 0.2);
+  z-index: 10;
 }
 
 header img {
   height: 41px;
+  position: relative;
 }
 
 .navbar {
@@ -58,7 +60,41 @@ header img {
 }
 
 .navbar-items {
-  display: none;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  top: 48px;
+  left: 0px;
+  width: 100%;
+  background-color: #0d455c;
+  margin: 0;
+  height: 0px;
+  overflow: hidden;
+  padding: 17px 15px;
+  height: auto;
+  top: -300px;
+  transition: transform 3s;
+  z-index: 10;
+}
+
+.navbar-items--show{
+  transform: translateY(348px);
+}
+
+.navbar-items a {
+  font-family: Rubik;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 23px;
+  line-height: 120%;
+  color: var(--white);
+  outline: none;
+  text-decoration: none;
+  border-bottom: 1px solid var(--Blue_sky-1);
+}
+
+.navbar-items a:hover {
+  color: var(--Blue_sky-1);
 }
 
 .line-1,
@@ -489,39 +525,31 @@ footer nav ul {
 }
 
 @media (min-width: 800px) {
-  header{
+  header {
     position: sticky;
     position: -webkit-sticky;
     top: 0px;
-    z-index: 10;
   }
   .main-section img {
     opacity: 1;
   }
 
-  .navbar .navbar-items {
-    display: inline;
-    color: var(--white);
-  }
-
   .navbar-items {
-    list-style: none;
+    display: inline;
+    position: static;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: flex-end;
+    color: var(--white);
+    height: auto;
+    padding: 0;
+    background-color: transparent;
+    width: auto;
   }
 
   .navbar-items a {
-    font-family: Rubik;
-    font-style: normal;
-    font-weight: bold;
-    font-size: 23px;
-    line-height: 120%;
-    color: var(--white);
-    outline: none;
-    text-decoration: none;
     margin-left: 13px;
-  }
-
-  .navbar-items a:hover{
-    color: var(--Blue_sky-1);
+    border: none;
   }
 
   .hamburger-container {
@@ -543,7 +571,7 @@ footer nav ul {
     width: 50%;
   }
 
-  .project_info--descrition{
+  .project_info--descrition {
     margin-left: 13px;
   }
 
@@ -553,18 +581,17 @@ footer nav ul {
     flex-wrap: wrap;
   }
 
-
-  .video-section{
+  .video-section {
     width: 50%;
   }
 
-  .biography-container{
+  .biography-container {
     flex-direction: row;
     justify-content: space-between;
     flex-wrap: wrap;
   }
 
-  .biography-item{
+  .biography-item {
     width: 25%;
     margin: 15px 13px;
   }
