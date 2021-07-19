@@ -73,7 +73,7 @@ header img {
   padding: 17px 15px;
   height: auto;
   top: -300px;
-  transition: transform 3s;
+  transition: transform 1.5s;
   z-index: 10;
 }
 
