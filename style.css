@@ -409,6 +409,11 @@ main {
   width: 100%;
 }
 
+.Video-demo{
+  display: flex;
+  justify-content: center;
+  margin-top: 25px;
+}
 .video-section--item iframe {
   width: 100%;
   min-width: 320px;
